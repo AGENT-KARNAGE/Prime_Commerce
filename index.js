@@ -1,6 +1,5 @@
 require('dotenv').config()
 const express = require('express')
-const { connect } = require('mongoose')
 const connectDB = require('./config/dbConfig')
 const mongoose = require( 'mongoose' )
 
@@ -13,15 +12,16 @@ app.use(express.json())
 //db config
 connectDB()
 
+//register routers
+app.use('/api/register',require('./routers/auth/register'))
+
 //port
-const port = process.env.PORT || 5890
+const PORT = process.env.PORT || 5890
 
 //connect
 mongoose.connection.once( 'open', () => {
     console.log('Database connection success!')
-    
-    
-    app.listen(port, ()=>{
+    app.listen(PORT, ()=>{
     console.log(`server is running on port http://localhost:${PORT}`)
     })
 })

@@ -1,7 +1,7 @@
 const mongoose = require( 'mongoose' );
-const schema = mongoose.schema;
+const Schema = mongoose.Schema;
 
-const productSchema = new schema({
+const productSchema = new Schema({
     title: {
         type: String,
         unique: true,

@@ -1,7 +1,7 @@
 const mongoose = require( 'mongoose' );
-const schema = mongoose.schema;
+const schema = mongoose.Schema;
 
-const orderSchema = new schema({
+const orderSchema = new Schema({
     
 userID: String,
 products:[
